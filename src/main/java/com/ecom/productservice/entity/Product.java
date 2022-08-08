@@ -1,6 +1,7 @@
 package com.ecom.productservice.entity;
 
 
+import com.ecom.productservice.dto.ProductResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,4 +23,14 @@ public class Product {
     private String description;
     private BigDecimal price ;
 
+
+    public ProductResponse mapToProductResponse()
+    {
+        return ProductResponse.builder()
+                .id(this.id)
+                .name(this.name)
+                .description(this.description)
+                .price(this.price)
+                .build();
+    }
 }
